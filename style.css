@@ -260,20 +260,25 @@ img {
     gap: 1.5rem;
 }
 
-/* Imagem da Hero com Estilo Orgânico */
 .image-wrapper {
     position: relative;
+    overflow: hidden;
+    border-radius: 240px 240px 0 0;
+    box-shadow: var(--shadow);
+    border-bottom: 12px solid var(--primary-light);
+    animation: float-hero 6s ease-in-out infinite; /* Animação agora no container */
 }
 
 #hero-img {
     width: 100%;
-    max-width: 450px;
+    max-width: 480px;
+    height: 600px;
+    object-fit: cover;
+    object-position: center 20%; 
+    transform: scale(1.35); /* Ajustado a pedido: diminuição de mais 15% */
     margin-left: auto;
     margin-right: auto;
-    border-radius: 200px 200px 0 0;
-    box-shadow: var(--shadow);
-    border-bottom: 12px solid var(--primary-light);
-    animation: float-hero 6s ease-in-out infinite;
+    transition: transform 0.5s ease;
 }
 
 @keyframes float-hero {
@@ -1001,7 +1006,8 @@ footer {
 .breathe-text {
     font-size: 2rem;
     color: var(--primary-dark);
-    margin-top: 2rem;
+    margin-top: 5rem;
+    font-family: var(--font-heading);
 }
 
 /* Mandala Styles */
@@ -1057,27 +1063,29 @@ footer {
 }
 
 .close-breathe {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    position: fixed;
+    top: 30px;
+    right: 30px;
     background: white;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     cursor: pointer;
     color: var(--primary-dark);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--shadow);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    z-index: 3000;
     transition: var(--transition);
 }
 
 .close-breathe:hover {
-    transform: scale(1.1);
+    transform: scale(1.1) rotate(90deg);
     color: var(--primary);
+    background: var(--primary-light);
 }
 
 @keyframes fade-in {

@@ -268,10 +268,18 @@ img {
 #hero-img {
     width: 100%;
     max-width: 450px;
-    margin: left auto;
-    border-radius: 200px 200px 0 0; /* Arco no topo */
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 200px 200px 0 0;
     box-shadow: var(--shadow);
     border-bottom: 12px solid var(--primary-light);
+    animation: float-hero 6s ease-in-out infinite;
+}
+
+@keyframes float-hero {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
 }
 
 .experience-badge {
@@ -993,17 +1001,83 @@ footer {
 .breathe-text {
     font-size: 2rem;
     color: var(--primary-dark);
+    margin-top: 2rem;
+}
+
+/* Mandala Styles */
+.mandala-wrapper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mandala-svg-container {
+    width: 100%;
+    height: 100%;
+    transition: transform 4s ease-in-out;
+}
+
+.mandala-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.mandala-group {
+    transform-origin: center;
+}
+
+.layer-1 {
+    animation: rotate-mandala 20s linear infinite;
+}
+
+.layer-2 {
+    animation: rotate-mandala 15s linear infinite reverse;
+}
+
+@keyframes rotate-mandala {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Breathing Animations for Mandala */
+.mandala-wrapper.inhale .mandala-svg-container {
+    transform: scale(1.4);
+}
+
+.mandala-wrapper.hold .mandala-svg-container {
+    transform: scale(1.4);
+}
+
+.mandala-wrapper.exhale .mandala-svg-container {
+    transform: scale(1);
 }
 
 .close-breathe {
     position: absolute;
-    top: -100px;
-    right: 0;
-    background: none;
+    top: 20px;
+    right: 20px;
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     cursor: pointer;
-    color: var(--text-muted);
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.close-breathe:hover {
+    transform: scale(1.1);
+    color: var(--primary);
 }
 
 @keyframes fade-in {
@@ -1021,4 +1095,9 @@ footer {
     70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
+
+.fade-in {
+    animation: fade-in 1.2s ease forwards;
+}
+
 

@@ -355,9 +355,19 @@ section {
 }
 
 .about-image img {
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    border-radius: 70% 30% 30% 70% / 30% 30% 70% 70%; /* Formato invertido */
     box-shadow: var(--shadow);
-    max-width: 90%;
+    max-width: 100%;
+    height: 380px; /* Reduzido 15% conforme pedido */
+    object-fit: cover;
+    object-position: 85% center; 
+    transform: scale(1.15); /* Reduzido 15% conforme pedido */
+    border: 10px solid white;
+    transition: var(--transition);
+}
+
+.about-image img:hover {
+    transform: scale(1.2) rotate(-1deg);
 }
 
 /* Palestras Section */
@@ -380,8 +390,14 @@ section {
 .lecture-image img {
     border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; /* Forma orgânica como blob */
     box-shadow: var(--shadow);
-    max-width: 90%; /* Aumentado a pedido para preencher melhor o grid */
-    border-bottom: 8px solid var(--primary); /* Detalhe colorido em baixo */
+    max-width: 100%;
+    transform: scale(1.3); /* Aumentado mais 20% conforme pedido */
+    border: 10px solid white; 
+    transition: var(--transition);
+}
+
+.lecture-image img:hover {
+    transform: scale(1.35) rotate(-1deg);
 }
 
 .lecture-text h2 {

@@ -26,11 +26,12 @@
             justify-content: center;
         }
         .hero-profile img {
-            width: 220px;
-            height: 220px;
+            width: 100%;
+            max-width: 520px;
+            height: 380px;
             object-fit: cover;
             object-position: center 25%; /* Ajuste para focar mais no rosto e no livro */
-            border-radius: 50%;
+            border-radius: var(--border-radius-lg); /* Cantos arredondados do site */
             border: 8px solid white;
             box-shadow: var(--shadow);
             transition: var(--transition);

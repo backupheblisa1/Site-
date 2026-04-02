@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Palestras e Workshops de Saúde Mental com Heblisa Pinheiro de Mello. Desenvolvimento humano e organizacional com foco em humanização.">
+    <title>Palestras e Workshops | Heblisa Pinheiro de Mello</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, #fff 100%);
+            text-align: center;
+        }
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+        .lecture-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        .detail-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+        .detail-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+        .detail-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header / Navbar -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">Heblisa Pinheiro de Mello</a>
+            <nav class="nav-links">
+                <a href="index.html#sobre">Sobre Mim</a>
+                <a href="index.html#especialidades">Especialidades</a>
+                <a href="index.html#palestras">Palestras</a>
+                <a href="quem-sou.html" style="color: var(--primary); font-weight: 600;" class="nav-highlight">Quem é Heblisa</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="https://wa.me/5581966355844" target="_blank" class="btn btn-primary">Agendar Consulta</a>
+                <button class="menu-toggle" aria-label="Abrir menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <a href="index.html#palestras" class="back-link"><i class="fas fa-arrow-left"></i> Voltar</a>
+                <h1 class="reveal">Palestras & Desenvolvimento Humanizado</h1>
+                <p class="reveal delay-1" style="max-width: 800px; margin: 0 auto; color: var(--text-muted); font-size: 1.2rem;">
+                    Leve para sua organização ou grupo reflexões profundas e ferramentas práticas para fortalecer a saúde mental e as relações interpessoais.
+                </p>
+            </div>
+        </section>
+
+        <!-- Seção de Foto e Introdução Detalhada -->
+        <section class="container" style="padding: 60px 0;">
+            <div class="about-content" style="grid-template-columns: 1fr 1.2fr; gap: 4rem;">
+                <div class="lecture-image reveal">
+                    <img src="assets/palestra_heblisa.jpg" alt="Heblisa em ação em uma palestra" class="rounded-image" style="width: 75%; display: block; margin: 0 auto; border: 12px solid white; box-shadow: var(--shadow); border-radius: var(--border-radius-lg);">
+                </div>
+                <div class="about-text reveal delay-1">
+                    <h2>Impacto através da fala e do acolhimento</h2>
+                    <p>Minha missão nas empresas e grupos é democratizar o conhecimento psicológico, tornando-o acessível e aplicável à rotina de trabalho. Não se trata apenas de passar informação, mas de criar um espaço de pausa e reflexão genuína.</p>
+                    <p>Acredito que organizações saudáveis são feitas de pessoas que se sentem vistas e respeitadas em sua subjetividade.</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://wa.me/5581966355844" target="_blank" class="btn btn-outline">
+                            <i class="fab fa-whatsapp"></i> Consultar Disponibilidade
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="padding: 40px 0;">
+            <div class="section-title text-center reveal">
+                <h2>Temas em Destaque</h2>
+            </div>
+            <div class="lecture-detail-grid">
+                <div class="detail-card reveal">
+                    <i class="fas fa-heart-pulse"></i>
+                    <h3>Saúde Mental no Trabalho</h3>
+                    <p>Prevenção de Burnout, gestão de estresse e a importância do acolhimento psicológico no ambiente corporativo.</p>
+                </div>
+                <div class="detail-card reveal delay-1">
+                    <i class="fas fa-users-gear"></i>
+                    <h3>Liderança Humanizada</h3>
+                    <p>Desenvolvendo uma gestão baseada na empatia, escuta ativa e no desenvolvimento da autonomia das equipes.</p>
+                </div>
+                <div class="detail-card reveal delay-2">
+                    <i class="fas fa-comments"></i>
+                    <h3>Comunicação Não-Violenta</h3>
+                    <p>Ferramentas práticas para resolver conflitos e construir diálogos muito mais produtivos e saudáveis.</p>
+                </div>
+                <div class="detail-card reveal">
+                    <i class="fas fa-brain"></i>
+                    <h3>Inteligência Emocional</h3>
+                    <p>Como reconhecer e acolher as próprias emoções para tomar decisões melhores na vida pessoal e profissional.</p>
+                </div>
+                <div class="detail-card reveal delay-1">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Autocuidado e Longevidade</h3>
+                    <p>Rodas de conversa sobre a importância de parar, respirar e cuidar da própria jornada em um mundo acelerado.</p>
+                </div>
+                <div class="detail-card reveal delay-2">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Acolhimento Luto e Perdas</h3>
+                    <p>Sensibilização e apoio para grupos que atravessam momentos de transição ou perdas significativas.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container" style="padding-bottom: 100px;">
+            <div style="background: var(--primary-dark); color: white; padding: 4rem; border-radius: var(--border-radius-lg); text-align: center;" class="reveal">
+                <h2 style="color: white; margin-bottom: 1.5rem; font-size: 2.5rem;">Vamos humanizar sua organização?</h2>
+                <p style="margin-bottom: 2.5rem; opacity: 0.9; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    Cada palestra ou workshop é adaptado para a necessidade específica do seu grupo. Entre em contato para uma proposta personalizada.
+                </p>
+                <a href="https://wa.me/5581966355844" target="_blank" class="btn btn-primary" style="background: white; color: var(--primary-dark);">
+                    <i class="fab fa-whatsapp"></i> Conversar agora
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-info">
+                <a href="index.html" class="logo">Heblisa Pinheiro de Mello</a>
+                <p>Psicóloga Clínica • CRP 14/08807-2</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/seu-perfil" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/seu-perfil" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/5581966355844" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Links Úteis</h4>
+                <a href="index.html#sobre">Quem sou eu</a>
+                <a href="index.html#especialidades">Especialidades</a>
+                <a href="index.html#palestras">Palestras</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contato</h4>
+                <p><i class="far fa-envelope"></i> contato@heblisapinheiro.com.br</p>
+                <p><i class="fab fa-whatsapp"></i> (81) 96635-5844</p>
+                <p>Atendimento 100% Online</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Heblisa Pinheiro de Mello Psicologia. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // Scroll Reveal
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal();
+    </script>
+</body>
+</html>

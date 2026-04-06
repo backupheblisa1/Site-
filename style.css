@@ -1170,6 +1170,29 @@ footer {
 }
 
 /* Itens da Timeline */
+.timeline-notice {
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    padding: 1rem 1.5rem;
+    background: #F4EFF8;
+    border: 1px solid var(--primary-light);
+    border-radius: var(--border-radius-lg);
+    color: var(--primary-dark);
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(142, 107, 164, 0.05);
+}
+
+.timeline-notice i {
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
 .timeline-item {
     padding: 10px 40px;
     position: relative;

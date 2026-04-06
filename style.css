@@ -1217,6 +1217,36 @@ footer {
     margin-bottom: 0;
 }
 
+/* Gallery inside Timeline Cards */
+.timeline-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-gallery img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    cursor: zoom-in;
+}
+
+.timeline-gallery img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(92, 69, 112, 0.15);
+}
+
+/* Response for small screens */
+@media screen and (max-width: 500px) {
+    .timeline-gallery {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Ano (Pill) */
 .timeline-year {
     display: inline-block;

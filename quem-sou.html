@@ -150,8 +150,12 @@
                         <div class="timeline-card">
                             <span class="timeline-year">2015 — 2019</span>
                             <div class="timeline-gallery">
-                                <img src="assets/gradu_fun.jpg" alt="Heblisa na formatura - Momento descontraído">
+                                <img src="assets/gradu_fun.jpg" alt="Heblisa na formatura - Momento descontraído" class="active">
                                 <img src="assets/gradu_formal.jpg" alt="Heblisa na formatura - Momento solene">
+                                <div class="gallery-dots">
+                                    <span class="dot active" data-index="0"></span>
+                                    <span class="dot" data-index="1"></span>
+                                </div>
                             </div>
                             <h3>Graduação em Psicologia</h3>
                             <p>Centro Universitário da Grande Dourados (UNIGRAN). Base fundamental para o entendimento da psique humana e início do encantamento pela abordagem humanista.</p>
@@ -265,6 +269,17 @@
         </div>
     </footer>
 
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="close-lightbox">&times;</span>
+        <div class="lightbox-nav">
+            <div class="lightbox-btn" id="prev-btn"><i class="fas fa-chevron-left"></i></div>
+            <div class="lightbox-btn" id="next-btn"><i class="fas fa-chevron-right"></i></div>
+        </div>
+        <img src="" alt="Imagem Expandida" class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-counter" id="lightbox-counter">1 / 1</div>
+    </div>
+
     <script>
         // Menu Mobile Toggle
         const menuToggle = document.querySelector('.menu-toggle');
@@ -274,6 +289,94 @@
             const icon = menuToggle.querySelector('i');
             icon.classList.toggle('fa-bars');
             icon.classList.toggle('fa-times');
+        });
+
+        // --- Lógica do Carrossel Interno ---
+        const timelineGalleries = document.querySelectorAll('.timeline-gallery');
+        
+        timelineGalleries.forEach(gallery => {
+            const imgs = gallery.querySelectorAll('img');
+            const dots = gallery.querySelectorAll('.dot');
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    e.stopPropagation(); // Não abrir o lightbox ao clicar no dot
+                    const index = parseInt(dot.getAttribute('data-index'));
+                    
+                    // Reset
+                    imgs.forEach(img => img.classList.remove('active'));
+                    dots.forEach(d => d.classList.remove('active'));
+                    
+                    // Set Active
+                    imgs[index].classList.add('active');
+                    dot.classList.add('active');
+                });
+            });
+        });
+
+        // --- Lógica do Lightbox ---
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('close-lightbox');
+        const lightboxCounter = document.getElementById('lightbox-counter');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        let currentGalleryImgs = [];
+        let currentIndex = 0;
+
+        // Abrir Lightbox
+        document.querySelectorAll('.timeline-gallery img').forEach(img => {
+            img.addEventListener('click', () => {
+                const gallery = img.closest('.timeline-gallery');
+                currentGalleryImgs = Array.from(gallery.querySelectorAll('img'));
+                currentIndex = currentGalleryImgs.indexOf(img);
+                
+                updateLightbox();
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Travar scroll
+            });
+        });
+
+        function updateLightbox() {
+            const img = currentGalleryImgs[currentIndex];
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCounter.textContent = `${currentIndex + 1} / ${currentGalleryImgs.length}`;
+        }
+
+        // Navegação
+        function nextImg() {
+            currentIndex = (currentIndex + 1) % currentGalleryImgs.length;
+            updateLightbox();
+        }
+
+        function prevImg() {
+            currentIndex = (currentIndex - 1 + currentGalleryImgs.length) % currentGalleryImgs.length;
+            updateLightbox();
+        }
+
+        nextBtn.addEventListener('click', (e) => { e.stopPropagation(); nextImg(); });
+        prevBtn.addEventListener('click', (e) => { e.stopPropagation(); prevImg(); });
+
+        // Fechar Lightbox
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // Atalhos de Teclado
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextImg();
+            if (e.key === 'ArrowLeft') prevImg();
         });
 
         // Scroll Reveal

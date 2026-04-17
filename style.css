@@ -1471,6 +1471,42 @@ footer {
     .timeline-right {
         left: 0%;
     }
+
+    /* Ajustes para Galeria e Lightbox no Mobile */
+    .dot {
+        width: 14px;
+        height: 14px;
+        margin: 0 6px;
+    }
+
+    .lightbox-close {
+        top: 15px;
+        right: 15px;
+        font-size: 3.2rem;
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+        z-index: 10001;
+    }
+
+    .lightbox-btn {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+
+    .lightbox-content {
+        max-width: 98%;
+        max-height: 65vh; /* Garante espaço para o contador e botões embaixo se necessário */
+    }
+    
+    .timeline-gallery {
+        height: 280px; /* Um pouco menor no mobile para caber melhor na tela */
+    }
 }
 
 

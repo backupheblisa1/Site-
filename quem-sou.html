@@ -428,21 +428,36 @@
         timelineGalleries.forEach(gallery => {
             const imgs = gallery.querySelectorAll('img');
             const dots = gallery.querySelectorAll('.dot');
+            let innerIndex = 0;
+
+            function updateInnerGallery(index) {
+                innerIndex = (index + imgs.length) % imgs.length;
+                imgs.forEach(img => img.classList.remove('active'));
+                dots.forEach(d => d.classList.remove('active'));
+                imgs[innerIndex].classList.add('active');
+                dots[innerIndex].classList.add('active');
+            }
             
             dots.forEach(dot => {
                 dot.addEventListener('click', (e) => {
                     e.stopPropagation(); // Não abrir o lightbox ao clicar no dot
                     const index = parseInt(dot.getAttribute('data-index'));
-                    
-                    // Reset
-                    imgs.forEach(img => img.classList.remove('active'));
-                    dots.forEach(d => d.classList.remove('active'));
-                    
-                    // Set Active
-                    imgs[index].classList.add('active');
-                    dot.classList.add('active');
+                    updateInnerGallery(index);
                 });
             });
+
+            // Suporte para Swipe no Card da Galeria
+            let touchstartX = 0;
+            let touchendX = 0;
+            gallery.addEventListener('touchstart', e => {
+                touchstartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            gallery.addEventListener('touchend', e => {
+                touchendX = e.changedTouches[0].screenX;
+                if (touchendX < touchstartX - 50) updateInnerGallery(innerIndex + 1); // Próxima foto
+                if (touchendX > touchstartX + 50) updateInnerGallery(innerIndex - 1); // Foto anterior
+            }, { passive: true });
         });
 
         // --- Lógica do Lightbox ---
@@ -500,6 +515,19 @@
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) closeLightbox();
         });
+
+        // Suporte para Swipe no Lightbox
+        let lbTouchstartX = 0;
+        let lbTouchendX = 0;
+        lightbox.addEventListener('touchstart', e => {
+            lbTouchstartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        lightbox.addEventListener('touchend', e => {
+            lbTouchendX = e.changedTouches[0].screenX;
+            if (lbTouchendX < lbTouchstartX - 50) nextImg();
+            if (lbTouchendX > lbTouchstartX + 50) prevImg();
+        }, { passive: true });
 
         // Atalhos de Teclado
         document.addEventListener('keydown', (e) => {
